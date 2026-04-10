@@ -1,0 +1,22 @@
+on:
+  push:
+    branches: [master]
+jobs:
+  k6_performance-test:
+    name: k6 test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Run local k6 test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: test/check.js
+          vus: 10
+          duration: 30s
+
+      - name: Run k6 performance test
+        run: |
+          k6 run --vus 10 --duration 30s ./tests/performance_test.js
