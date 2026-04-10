@@ -16,7 +16,7 @@ export const options = {
 }
 
 export default function () {
-    const response = http.get("https://fierce-brook-83918.herokuapp.com/api/v1/health");
+    const response = http.get("https://api.escuelajs.co/api/v1/products/");
     
     check(response, {"Status code is 200": (r) => r.status === 200,
         "Transaction is below 500ms": (r) => r.timings.duration < 500,
