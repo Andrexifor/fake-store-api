@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-        name: List files
+      - name: List files
         run: ls -R
 
       - name: Run local k6 test
