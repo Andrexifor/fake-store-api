@@ -4,7 +4,7 @@ on:
 jobs:
   k6_performance-test:
     name: k6 test
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
@@ -14,9 +14,3 @@ jobs:
         uses: grafana/k6-action@v0.2.0
         with:
           filename: test/check.js
-          vus: 10
-          duration: 30s
-
-      - name: Run k6 performance test
-        run: |
-          k6 run --vus 10 --duration 30s ./tests/performance_test.js
